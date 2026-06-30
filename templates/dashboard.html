@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Resume Dashboard</h1>
+
+    <!-- Statistics -->
+    <div class="stats">
+
+        <div class="card">
+            <h2>👥 Users</h2>
+            <h1>{{ total_users }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>📄 Resumes</h2>
+            <h1>{{ total_resumes }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>⭐ Avg Score</h2>
+            <h1>{{ average_score }}%</h1>
+        </div>
+
+        <div class="card">
+            <h2>🏆 Highest</h2>
+            <h1>{{ highest_score }}%</h1>
+        </div>
+
+    </div>
+    <a href="/analytics">
+    <button>📈 Analytics</button>
+</a>
+
+    <br>
+
+    <!-- Search -->
+    <form action="/dashboard" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search Resume">
+
+        <button type="submit">
+            🔍 Search
+        </button>
+
+    </form>
+
+    <br>
+
+    <!-- Compare Button -->
+    <br><br>
+
+<a href="/compare">
+    <button>📊 Compare Resumes</button>
+</a>
+
+    <br><br>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+        <tr>
+            <th>Rank</th>
+            <th>Resume</th>
+            <th>Score</th>
+            <th>JD Match</th>
+            <th>Recommendation</th>
+            <th>Action</th>
+        </tr>
+
+        {% for row in data %}
+
+        <tr>
+
+            <td>{{ loop.index }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}%</td>
+            <td>{{ row[3] }}%</td>
+            <td>{{ row[4] }}</td>
+
+            <td>
+                <a href="/delete/{{ row[0] }}">
+                    <button>🗑 Delete</button>
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/">
+        <button>⬅ Back</button>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 AI Resume Analysis Report</h1>
+
+    <br>
+
+    <a href="/download">
+        <button>📄 Download PDF Report</button>
+    </a>
+
+    <br><br>
+
+    <!-- ATS -->
+
+    <div class="card">
+
+        <h2>🤖 ATS Resume Ranking</h2>
+
+        <h1>{{ ats_score }}%</h1>
+
+        <h3>{{ ats_result }}</h3>
+
+    </div>
+
+    <!-- Chart -->
+
+    <div class="card">
+
+        <h2>📊 Resume Score Chart</h2>
+
+        <img src="{{ url_for('static', filename='chart.png') }}"
+             width="450">
+
+    </div>
+
+    <!-- Resume Score -->
+
+    <div class="card">
+
+        <h2>⭐ Resume Score</h2>
+
+        <h1>{{ score }}%</h1>
+
+    </div>
+
+    <!-- Recommendation -->
+
+    <div class="card">
+
+        <h2>🤖 AI Recommendation</h2>
+
+        <p>{{ recommendation }}</p>
+
+    </div>
+
+    <!-- JD Match -->
+
+    <div class="card">
+
+        <h2>🎯 JD Match</h2>
+
+        <h1>{{ match_percentage }}%</h1>
+
+    </div>
+
+    <!-- Skills -->
+
+    <div class="card">
+
+        <h2>✅ Detected Skills</h2>
+
+        <ul>
+
+        {% for skill in found_skills %}
+
+            <li>{{ skill }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Matched Skills -->
+
+    <div class="card">
+
+        <h2>✔ Matched Skills</h2>
+
+        <ul>
+
+        {% for skill in matched_skills %}
+
+            <li>{{ skill }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Missing Skills -->
+
+    <div class="card">
+
+        <h2>❌ Missing Skills</h2>
+
+        <ul>
+
+        {% for skill in missing_skills %}
+
+            <li>{{ skill }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Improvement -->
+
+    <div class="card">
+
+        <h2>🚀 Resume Improvement Tips</h2>
+
+        <ul>
+
+        {% for tip in improvement_tips %}
+
+            <li>{{ tip }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Suggestions -->
+
+    <div class="card">
+
+        <h2>💡 AI Suggestions</h2>
+
+        <ul>
+
+        {% for suggestion in suggestions %}
+
+            <li>{{ suggestion }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Interview -->
+
+    <div class="card">
+
+        <h2>🎤 AI Interview Questions</h2>
+
+        <ul>
+
+        {% for q in questions %}
+
+            <li>{{ q }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Jobs -->
+
+    <div class="card">
+
+        <h2>💼 Recommended Jobs</h2>
+
+        <ul>
+
+        {% for job in jobs %}
+
+            <li>{{ job }}</li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- Resume Text -->
+
+    <div class="card">
+
+        <h2>📄 Extracted Resume Text</h2>
+
+        <pre>{{ text }}</pre>
+
+    </div>
+
+    <br>
+
+    <a href="/">
+        <button>📄 Analyze Another Resume</button>
+    </a>
+
+    <br><br>
+
+   <a href="/profile">
+    <button>👤 View Profile</button>
+</a>
+
+<br><br>
+
+{% if session.get("admin") %}
+
+<a href="/history">
+    <button>📚 Resume History</button>
+</a>
+
+<br><br>
+
+<a href="/dashboard">
+    <button>📊 Dashboard</button>
+</a>
+
+<br><br>
+
+<a href="/analytics">
+    <button>📈 Analytics</button>
+</a>
+
+<br><br>
+
+<a href="/compare">
+    <button>📊 Compare Resumes</button>
+</a>
+
+<br><br>
+
+{% endif %}
+
+<a href="/logout">
+    <button>🚪 Logout</button>
+</a>
+
+</div>
+
+</body>
+</html>

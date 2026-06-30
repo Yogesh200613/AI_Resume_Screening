@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Resume Screening System</h1>
+
+    <form action="/login" method="POST">
+
+        <label>Username</label>
+
+        <input type="text"
+               name="username"
+               placeholder="Enter Username"
+               required>
+
+        <br><br>
+
+        <label>Password</label>
+
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+
+        <br><br>
+        <br><br>
+
+<p>New User?</p>
+
+<a href="/register">
+    <button type="button">Register</button>
+</a>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candidate Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>👤 Candidate Profile</h1>
+
+    <div class="card">
+        <h3>Name</h3>
+        <p>{{ name }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Email</h3>
+        <p>{{ email }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Resume Score</h3>
+        <p>{{ score }}%</p>
+    </div>
+
+    <div class="card">
+        <h3>JD Match</h3>
+        <p>{{ jd_match }}%</p>
+    </div>
+
+    <br>
+
+    <a href="/home">
+        <button>Analyze New Resume</button>
+        <a href="/history">
+    <button>📄 Resume History</button>
+</a>
+    </a>
+    <a href="/logout">
+    <button style="background:red;color:white;">
+        Logout
+    </button>
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📊 Analytics Dashboard</h1>
+
+<div class="card">
+<h2>Total Users</h2>
+<h1>{{ total_users }}</h1>
+</div>
+
+<div class="card">
+<h2>Total Resumes</h2>
+<h1>{{ total_resumes }}</h1>
+</div>
+
+<div class="card">
+<h2>Average Score</h2>
+<h1>{{ average_score }}%</h1>
+</div>
+
+<div class="card">
+<h2>Highest Score</h2>
+<h1>{{ highest_score }}%</h1>
+</div>
+
+<br>
+
+<a href="/dashboard">
+<button>⬅ Back</button>
+</a>
+
+</div>
+
+</body>
+</html>
